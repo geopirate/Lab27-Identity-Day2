@@ -23,8 +23,6 @@ namespace Lab27George
         {
             services.AddMvc();
 
-            services.AddDbContext<Lab27GeorgeContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("Lab27GeorgeContext")));
             // main player database connection
             services.AddDbContext<Lab27GeorgeContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("Lab27GeorgeContext")));
@@ -50,7 +48,6 @@ namespace Lab27George
 
             app.UseMvc();
             app.UseStaticFiles();
-            
 
             app.UseMvc(routes =>
             {
