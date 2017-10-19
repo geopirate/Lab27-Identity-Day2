@@ -40,6 +40,9 @@ namespace Lab27George
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            // this needs to always be first
+            app.UseAuthentication();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -47,7 +50,7 @@ namespace Lab27George
 
             app.UseMvc();
             app.UseStaticFiles();
-            app.UseAuthentication();
+            
 
             app.UseMvc(routes =>
             {
